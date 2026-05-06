@@ -62,7 +62,16 @@ CREATE DATABASE user_db;
 ```
 
 ### Step 5: Environment Variables
-Create .env file in project root:
+Copy the example file to `.env` and update values as needed:
+```bash
+cp .env.example .env
+```
+For Windows PowerShell:
+```powershell
+Copy-Item .env.example .env
+```
+
+Create or edit `.env` in the project root:
 ```env
 DB_NAME=user_db
 DB_USER=root
