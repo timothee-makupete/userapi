@@ -5,12 +5,12 @@
 [![Python](https://img.shields.io/badge/Python-3.10+-blue)](https://www.python.org/)
 [![MySQL](https://img.shields.io/badge/MySQL-MariaDB-orange)](https://mariadb.org/)
 
-## 📋 Project Overview
+##  Project Overview
 
 A RESTful API for managing users with external data integration, filtering, and secure authentication.
 
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Technology | Version |
 |------------|---------|
@@ -22,7 +22,7 @@ A RESTful API for managing users with external data integration, filtering, and 
 | python-dotenv | 1.0.1 |
 |drf-spectacular |0.29.0 |
 
-## 📥 Installation
+##  Installation
 
 ### Prerequisites
 - Python 3.10 or higher
@@ -31,8 +31,8 @@ A RESTful API for managing users with external data integration, filtering, and 
 
 ### Step 1: Clone Repository
 ```bash
-git clone https://github.com/yourusername/django-user-api.git
-cd django-user-api
+git clone https://github.com/timothee-makupete/userapi.git
+cd userapi
 ```
 
 ### Step 2: Create Virtual Environment
@@ -96,7 +96,7 @@ python manage.py runserver
 ```
 Server running at: http://127.0.0.1:8000/
 
-## 🎯 API Endpoints
+##  API Endpoints
 
 All endpoints require HTTP Basic Authentication.
 
@@ -116,3 +116,22 @@ All endpoints require HTTP Basic Authentication.
 | name | ?name=Leanne | Filter by user name (case-insensitive) |
 
 Combine filters: `/api/users/?city=Gwenborough&company=Romaguera`
+
+##  AI Usage
+
+Per test requirements, AI was used for:
+- API endpoints - DRF view generation
+- Filtering implementation - django-filter integration
+- Documentation - README and code comments
+
+Adapted from AI output:
+- Manual filtering backup logic
+- Enhanced error handling messages
+
+No AI used for:
+- Initial project structure - Django configuration setup
+- Security implementation (manual configuration)
+- Database design - Normalized schema suggestion
+- Data transformation logic (custom mapping)
+- Environment-based credential management
+- Testing approach
