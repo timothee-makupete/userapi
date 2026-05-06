@@ -117,6 +117,14 @@ All endpoints require HTTP Basic Authentication.
 
 Combine filters: `/api/users/?city=Gwenborough&company=Romaguera`
 
+##  Swagger UI
+
+The API documentation is available at: [http://127.0.0.1:8000/api/docs/](http://127.0.0.1:8000/api/docs/)
+
+![Swagger UI - API Summary](swagger_screenshoots/Screenshot%20(62).png)
+
+![Swagger UI - Authorization Dialog](swagger_screenshoots/Screenshot%20(63).png)
+
 ##  AI Usage
 
 Per test requirements, AI was used for:
