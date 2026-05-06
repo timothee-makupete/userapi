@@ -47,7 +47,7 @@ python -m venv venv
 venv\Scripts\activate
 
 # Mac/Linux
-python3 -m venv venv
+py -m venv venv
 source venv/bin/activate
 ```
 
@@ -93,20 +93,20 @@ SECRET_KEY=django-insecure-your-secret-key-here
 
 ### Step 6: Run Migrations
 ```bash
-python manage.py makemigrations users
-python manage.py migrate
+py manage.py makemigrations users
+py manage.py migrate
 ```
 
 ### Step 7: Create Superuser
 ```bash
-python manage.py createsuperuser
+py manage.py createsuperuser
 # Username: admin
 # Password: SecurePass123!
 ```
 
 ### Step 8: Run Server
 ```bash
-python manage.py runserver
+py manage.py runserver
 ```
 Server running at: http://127.0.0.1:8000/
 
