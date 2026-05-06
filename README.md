@@ -7,18 +7,8 @@
 
 ## 📋 Project Overview
 
-A production-ready RESTful API for managing users with external data integration, advanced filtering, and secure authentication. Built for the Back-End Developer Internship test.
+A RESTful API for managing users with external data integration, filtering, and secure authentication.
 
-**Score: 42/42 points** ✅
-
-### Features
-- 🔌 External API integration (JSONPlaceholder) with error handling
-- 💾 MySQL/MariaDB database with normalized schema
-- 🔐 HTTP Basic Authentication
-- 📋 Complete CRUD operations
-- 🔍 Advanced filtering (city, company, name)
-- 📊 Import summary response
-- 🛡️ Graceful error handling
 
 ## 🛠️ Tech Stack
 
@@ -30,6 +20,7 @@ A production-ready RESTful API for managing users with external data integration
 | django-filter | 24.2 |
 | requests | 2.31.0 |
 | python-dotenv | 1.0.1 |
+|drf-spectacular |0.29.0 |
 
 ## 📥 Installation
 
@@ -42,3 +33,86 @@ A production-ready RESTful API for managing users with external data integration
 ```bash
 git clone https://github.com/yourusername/django-user-api.git
 cd django-user-api
+```
+
+### Step 2: Create Virtual Environment
+```bash
+# Windows
+python -m venv venv
+venv\Scripts\activate
+
+# Mac/Linux
+python3 -m venv venv
+source venv/bin/activate
+```
+
+### Step 3: Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+### Step 4: Configure Database
+Start MySQL (XAMPP):
+- Open XAMPP Control Panel
+- Click "Start" next to MySQL
+
+Create database:
+```sql
+CREATE DATABASE user_db;
+```
+
+### Step 5: Environment Variables
+Create .env file in project root:
+```env
+DB_NAME=user_db
+DB_USER=root
+DB_PASSWORD=
+DB_HOST=127.0.0.1
+DB_PORT=3306
+
+API_USER=admin
+API_PASSWORD=SecurePass123!
+
+EXTERNAL_API_URL=https://jsonplaceholder.typicode.com/users
+SECRET_KEY=django-insecure-your-secret-key-here
+```
+
+### Step 6: Run Migrations
+```bash
+python manage.py makemigrations users
+python manage.py migrate
+```
+
+### Step 7: Create Superuser
+```bash
+python manage.py createsuperuser
+# Username: admin
+# Password: SecurePass123!
+```
+
+### Step 8: Run Server
+```bash
+python manage.py runserver
+```
+Server running at: http://127.0.0.1:8000/
+
+## 🎯 API Endpoints
+
+All endpoints require HTTP Basic Authentication.
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/import/ | Import users from external API |
+| GET | /api/users/ | List all users (supports filters) |
+| GET | /api/users/{id}/ | Get single user by ID |
+| DELETE | /api/users/{id}/delete/ | Delete user by ID |
+
+### Filter Parameters (GET /api/users/)
+
+| Parameter | Example | Description |
+|-----------|---------|-------------|
+| city | ?city=Gwenborough | Filter by city (case-insensitive) |
+| company | ?company=Romaguera | Filter by company name (case-insensitive) |
+| name | ?name=Leanne | Filter by user name (case-insensitive) |
+
+Combine filters: `/api/users/?city=Gwenborough&company=Romaguera`
