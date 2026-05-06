@@ -36,6 +36,11 @@ cd userapi
 ```
 
 ### Step 2: Create Virtual Environment
+If `venv` is not available, install `virtualenv` first:
+```bash
+pip install virtualenv
+```
+
 ```bash
 # Windows
 python -m venv venv
@@ -133,6 +138,55 @@ The API documentation is available at: [http://127.0.0.1:8000/api/docs/](http://
 ![Swagger UI - API Summary](swagger_screenshoots/Screenshot%20(62).png)
 
 ![Swagger UI - Authorization Dialog](swagger_screenshoots/Screenshot%20(63).png)
+
+##  Testing the API
+
+### Using cURL
+```bash
+# Set variables
+USERNAME="admin"
+PASSWORD="SecurePass123!"
+BASE_URL="http://127.0.0.1:8000/api"
+
+# 1. Import users
+curl -X POST $BASE_URL/import/ -u $USERNAME:$PASSWORD
+
+# 2. Get all users
+curl -u $USERNAME:$PASSWORD $BASE_URL/users/
+
+# 3. Filter by city
+curl -u $USERNAME:$PASSWORD "$BASE_URL/users/?city=Gwenborough"
+
+# 4. Filter by company
+curl -u $USERNAME:$PASSWORD "$BASE_URL/users/?company=Romaguera"
+
+# 5. Filter by name
+curl -u $USERNAME:$PASSWORD "$BASE_URL/users/?name=Leanne"
+
+# 6. Get single user
+curl -u $USERNAME:$PASSWORD $BASE_URL/users/1/
+
+# 7. Delete user
+curl -X DELETE -u $USERNAME:$PASSWORD $BASE_URL/users/1/delete/
+```
+
+### Using Python
+```python
+import requests
+from base64 import b64encode
+
+BASE_URL = "http://127.0.0.1:8000/api"
+credentials = b64encode(b"admin:SecurePass123!").decode()
+headers = {"Authorization": f"Basic {credentials}"}
+
+# Import users
+response = requests.post(f"{BASE_URL}/import/", headers=headers)
+print(response.json())
+
+# Get users with filter
+response = requests.get(f"{BASE_URL}/users/?city=Gwenborough", headers=headers)
+print(response.json())
+```
 
 ##  AI Usage
 
