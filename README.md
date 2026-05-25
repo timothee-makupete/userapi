@@ -199,6 +199,8 @@ Adapted from AI output:
 - Manual filtering backup logic
 - Enhanced error handling messages
 
+
+https://meet.google.com/dvq-dzep-dzi
 No AI used for:
 - Initial project structure - Django configuration setup
 - Security implementation (manual configuration)
